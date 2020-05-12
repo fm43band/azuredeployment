@@ -1,0 +1,19 @@
+apiVersionpiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: translatesvc-deployment
+spec:
+  selector:
+    matchLabels:
+      app: translatesvc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: translatesvc
+    spec:
+      containers:
+      - name: translatesvc
+        image: onedockregistry.azurecr.io/samples/translatesvc:latest
+        ports:
+        - containerPort: 5555
